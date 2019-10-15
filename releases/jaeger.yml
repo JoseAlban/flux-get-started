@@ -28,6 +28,16 @@ spec:
       podLabels: {}
       replicaCount: 3
       resources: {}
+      service:
+        annotations:
+          external-dns.alpha.kubernetes.io/hostname: dev-jaeger.test.co.uk
+          iam.amazonaws.com/role: arn:aws:iam::11111:role/jaeger
+          service.beta.kubernetes.io/aws-load-balancer-backend-protocol: http
+          service.beta.kubernetes.io/aws-load-balancer-ssl-cert: arn:aws:acm:eu-west-2:11111:certificate/aaa
+          service.beta.kubernetes.io/aws-load-balancer-ssl-negotiation-policy: ELBSecurityPolicy-TLS-1-2-2017-01
+          service.beta.kubernetes.io/aws-load-balancer-ssl-ports: 9411,14267,14268
+        loadBalancerSourceRanges:
+        - 8.8.8.8/32
     query:
       annotations: {}
       enabled: true
@@ -35,5 +45,15 @@ spec:
       podLabels: {}
       replicaCount: 1
       resources: {}
+      service:
+        annotations:
+          external-dns.alpha.kubernetes.io/hostname: dev-jaeger.test.co.uk
+          iam.amazonaws.com/role: arn:aws:iam::11111:role/jaeger
+          service.beta.kubernetes.io/aws-load-balancer-backend-protocol: http
+          service.beta.kubernetes.io/aws-load-balancer-ssl-cert: arn:aws:acm:eu-west-2:11111:certificate/aaa
+          service.beta.kubernetes.io/aws-load-balancer-ssl-negotiation-policy: ELBSecurityPolicy-TLS-1-2-2017-01
+          service.beta.kubernetes.io/aws-load-balancer-ssl-ports: 443
+        loadBalancerSourceRanges:
+        - 8.8.8.8/32
     spark:
       enabled: true
