@@ -37,7 +37,3 @@ spec:
       resources: {}
     spark:
       enabled: true
-    storage:
-      elasticsearch:
-        awsEsCluster: https://jaeger.jaeger
-        awsEsRegion: eu-west-2
