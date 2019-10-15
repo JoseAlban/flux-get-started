@@ -152,7 +152,7 @@ collector:
     annotations: {}
     # List of IP ranges that are allowed to access the load balancer (if supported)
     loadBalancerSourceRanges: []
-    type: ClusterIP
+    type: LoadBalancer
     grpcPort: 14250
     # tchannelPort: used by jaeger-agent to send spans in jaeger.thrift format
     tchannelPort: 14267
@@ -194,7 +194,7 @@ query:
   replicaCount: 1
   service:
     annotations: {}
-    type: ClusterIP
+    type: LoadBalancer
     # List of IP ranges that are allowed to access the load balancer (if supported)
     loadBalancerSourceRanges: []
     port: 80
