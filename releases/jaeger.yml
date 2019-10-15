@@ -56,4 +56,6 @@ spec:
         loadBalancerSourceRanges:
         - 8.8.8.8/32
     spark:
+      annotations:
+        iam.amazonaws.com/role: arn:aws:iam::11111:role/jaeger
       enabled: true
