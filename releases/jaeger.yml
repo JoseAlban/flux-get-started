@@ -59,3 +59,7 @@ spec:
       annotations:
         iam.amazonaws.com/role: arn:aws:iam::11111:role/jaeger
       enabled: true
+    storage:
+      elasticsearch:
+        awsEsCluster: https://jaeger.jaeger
+        awsEsRegion: eu-west-2
