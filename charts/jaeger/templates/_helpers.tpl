@@ -202,15 +202,16 @@ Configure list of IP CIDRs allowed access to load balancer (if supported)
 Configure AWS Signing sidecar to talk to elasticsearch via localhost and sign all requests automatically
 */}}
 {{- define "awsSigningSidecar" -}}
+{{- if .elasticsearch.awsEsCluster }}
 - name: aws-signing-proxy
   image: cllunsford/aws-signing-proxy
   imagePullPolicy: IfNotPresent
   command:
   - /aws-signing-proxy
   - -target
-  - xxx
+  - {{ .elasticsearch.awsEsCluster }}
   - -region
-  - xxx
+  - {{ .elasticsearch.awsEsRegion }}
   resources:
     limits:
       cpu: 500m
@@ -220,4 +221,5 @@ Configure AWS Signing sidecar to talk to elasticsearch via localhost and sign al
       memory: 750Mi
   terminationMessagePath: /dev/termination-log
   terminationMessagePolicy: File
+{{- end }}
 {{- end -}}
