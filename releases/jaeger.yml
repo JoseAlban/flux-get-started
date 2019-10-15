@@ -1,0 +1,39 @@
+# DO NOT EDIT MANUALLY, YOUR CHANGES WILL BE LOST
+---
+apiVersion: flux.weave.works/v1beta1
+kind: HelmRelease
+metadata:
+  name: jaeger
+  namespace: monitoring
+spec:
+  releaseName: jaeger
+  chart:
+    git: ssh://git@github.com/JoseAlban/flux-get-started
+    ref: master
+    path: charts/jaeger
+  values:
+    agent:
+      collector:
+        host: jaeger-collector.dev.svc.cluster.local
+      enabled: true
+      podAnnotations: {}
+      podLabels: {}
+      resources: {}
+      service:
+        annotations: {}
+    collector:
+      annotations: {}
+      enabled: true
+      podAnnotations: {}
+      podLabels: {}
+      replicaCount: 3
+      resources: {}
+    query:
+      annotations: {}
+      enabled: true
+      podAnnotations: {}
+      podLabels: {}
+      replicaCount: 1
+      resources: {}
+    spark:
+      enabled: true
