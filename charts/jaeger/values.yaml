@@ -48,8 +48,8 @@ storage:
     ## Use existing secret (ignores previous password)
     # existingSecret:
     nodesWanOnly: false
-    awsEsCluster: null # custom
-    awsEsRegion: null # custom
+    awsEsCluster: test # custom
+    awsEsRegion: test # custom
 
 # Begin: Override values on the Cassandra subchart to customize for Jaeger
 cassandra:

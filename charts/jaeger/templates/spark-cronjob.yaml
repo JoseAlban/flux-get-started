@@ -67,7 +67,7 @@ spec:
               value: {{ .Values.storage.elasticsearch.user }}
             {{- end }}
             resources:
-{{- include "awsSigningSidecar" .Values.storage | nindent 10 }}
 {{ toYaml .Values.spark.resources | indent 14 }}
+{{- include "awsSigningSidecar" .Values.storage | nindent 10 }}
           restartPolicy: OnFailure
 {{- end -}}
